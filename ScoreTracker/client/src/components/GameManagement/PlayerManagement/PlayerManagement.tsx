@@ -13,29 +13,13 @@ import { useState } from 'react'
 import { playersStore } from 'store'
 import { Player } from 'types/player'
 
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-}
 
 type Props = {
     open: boolean
-    handleOpen: Function
     handleClose: Function
 }
 
-// type HTMLElementEvent<T extends HTMLElement> = Event & {
-//     target: T
-// }
-
-export default function BasicModal({ open, handleOpen, handleClose }: Props) {
+export default function BasicModal({ open, handleClose }: Props) {
     const [playerName, setPlayerName] = useState('')
     const [isAddPlayerDisabled, setIsAddPlayerDisabled] = useState(true)
     const players = playersStore((state) => state.players)
@@ -85,16 +69,16 @@ export default function BasicModal({ open, handleOpen, handleClose }: Props) {
                         ) : (
                             players.map((player: Player, index: Number) => {
                                 return (
-                                    <>
-                                        <DialogContentText
-                                            sx={{
-                                                color: 'black',
-                                                paddingNottom: '0.25rem',
-                                            }}
-                                        >
-                                            {player.name}
-                                        </DialogContentText>
-                                    </>
+                                   
+                                    <DialogContentText
+                                        sx={{
+                                            color: 'black',
+                                            paddingNottom: '0.25rem',
+                                        }}
+                                    >
+                                        {player.name}
+                                    </DialogContentText>
+                                 
                                 )
                             })
                         )}
@@ -114,16 +98,11 @@ export default function BasicModal({ open, handleOpen, handleClose }: Props) {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={() => handleClose()}>Takaisin</Button>
+                        <Button onClick={() => handleClose()} variant="outlined">Takaisin</Button>
                         <Button
                             type="submit"
                             disabled={isAddPlayerDisabled}
-                            sx={{
-                                '&.Mui-disabled': {
-                                    background: '#eaeaea',
-                                    color: '#c0c0c0',
-                                },
-                            }}
+                            variant="outlined"
                         >
                             Lisää pelaaja
                         </Button>

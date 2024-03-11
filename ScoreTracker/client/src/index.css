@@ -16,6 +16,7 @@ code {
 .MuiButton-root {
     color: var(--background) !important;
     background-color: var(--white-text) !important;
+    border-color: var(--background) !important;
 }
 
 .MuiButton-root:disabled {
@@ -24,15 +25,15 @@ code {
 }
 
 .MuiOutlinedInput-notchedOutline {
-    border-color: var(--white-text) !important;
+    border-color: var(--background) !important;
 }
 
 .MuiOutlinedInput-root {
-    color: var(--white-text) !important;
+    color: var(--background) !important;
 }
 
 .MuiInputLabel-root {
-    color: var(--white-text) !important;
+    color: var(--background) !important;
 }
 
 :root {
@@ -40,4 +41,5 @@ code {
     --disabled: rgba(134, 138, 129, 0.637);
     --white-text: #ffff;
     --black: rgb(0, 0, 0);
+    --yellow: rgb(255, 255, 240)
 }

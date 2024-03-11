@@ -1,0 +1,4 @@
+.player-card-outer-container{
+    display: flex;
+    flex-direction: column;
+}
