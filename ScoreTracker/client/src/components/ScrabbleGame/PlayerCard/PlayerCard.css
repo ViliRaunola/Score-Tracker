@@ -1,4 +1,19 @@
 .player-card-outer-container{
     display: flex;
     flex-direction: column;
+    width: 45%;
+}
+
+.player-results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--white-text);
+    border-right: 1px solid var(--white-text);
+    margin: 0 0 2rem 0;
+}
+
+.player-results-grid > span{
+    padding: 0.5rem 0.25rem;
+    border-left: 1px solid var(--white-text);
+    border-bottom: 1px solid var(--white-text);
 }

@@ -1,7 +1,9 @@
 .scrabble-players-container{
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     gap: 1rem;
-    overflow-y: auto;
     margin: 2rem 0 3rem 0;
+    width: 100%;
+    flex-wrap: wrap;
 }

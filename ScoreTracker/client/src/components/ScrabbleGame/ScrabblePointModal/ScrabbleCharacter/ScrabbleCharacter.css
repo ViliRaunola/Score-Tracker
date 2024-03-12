@@ -1,8 +1,9 @@
 .scrabble-char-conainter {
     display: flex;
-    width: 1rem;
-    height: 1rem;
+    width: 1.75rem;
+    height: 1.75rem;
     border: 1px;
+    border-radius: 5px;
     border-style: solid;
     border-color: var(--black);
     align-items: center;
@@ -10,4 +11,13 @@
     padding: 0.25rem;
     background-color: var(--yellow);
     margin: 1rem 0 0 0 ;
+    padding: 0.25rem;
+    position: relative;
+}
+
+.scrabble-char-point {
+    position: absolute;
+    top: 20px;
+    left: 23px;
+    font-size: 0.7rem;
 }

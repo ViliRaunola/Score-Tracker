@@ -1,5 +1,6 @@
 export type Player = {
-    name: String
+    name: string
     score: [number]
-    words: [String]
+    words: [string]
+    totalPoints: number
 }

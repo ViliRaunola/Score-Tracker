@@ -17,6 +17,7 @@ code {
     color: var(--background) !important;
     background-color: var(--white-text) !important;
     border-color: var(--background) !important;
+    text-transform: none !important;
 }
 
 .MuiButton-root:disabled {

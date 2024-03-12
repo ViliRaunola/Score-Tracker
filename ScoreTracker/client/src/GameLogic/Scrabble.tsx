@@ -1,10 +1,10 @@
 export type wordPointTableType = {
   multiplier: number,
-  text: String,
+  text: string,
 }
 
 export type charPoint = {
-  char: String,
+  char: string,
   points: number,
 }
 
@@ -22,6 +22,18 @@ export const wordPointTable = [
     text: '3x sana pisteet',
   },
 ]
+
+export const findPointForChar = (char: string): number => {
+  let point = 0
+  for (let i = 0; i < charPoints.length; i++) {
+    const element = charPoints[i]
+    if (element.char === char) {
+      point = element.points
+      break
+    }
+  }
+  return point
+}
 
 export const charPoints = [
   {

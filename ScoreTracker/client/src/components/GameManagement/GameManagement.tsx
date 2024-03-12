@@ -15,10 +15,8 @@ const GameManagement = () => {
 
   useEffect(() => {
     if (players.length === 0) {
-      console.log('here2')
       setCanStartNewGame(false)
     } else {
-      console.log('here')
       setCanStartNewGame(true)
     }
   }, [players])

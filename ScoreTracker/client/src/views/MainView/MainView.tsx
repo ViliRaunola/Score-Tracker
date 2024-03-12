@@ -7,10 +7,6 @@ import {gameStateStore} from '../../store'
 const MainView = () => {
   const gameState = gameStateStore((state) => state.gameState)
 
-  React.useEffect(() => {
-    console.log(gameState.isGameStarted)
-  }, [gameState.isGameStarted])
-
   return (
     <div className="main-view-container">
       <div className="introduction-container">
