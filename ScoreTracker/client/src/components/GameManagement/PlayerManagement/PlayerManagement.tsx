@@ -98,7 +98,7 @@ export default function BasicModal({ open, handleClose }: Props) {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={() => handleClose()} variant="outlined">Takaisin</Button>
+                        <Button onClick={() => handleClose()} variant="outlined">Valmis</Button>
                         <Button
                             type="submit"
                             disabled={isAddPlayerDisabled}
