@@ -27,4 +27,4 @@ COPY ScoreTracker/db.sqlite3 .
 
 EXPOSE 8000
 
-CMD ["python3.8", "manage.py", "runserver"]
+CMD ["python3.8", "manage.py", "runserver", "0.0.0.0:8000"]
