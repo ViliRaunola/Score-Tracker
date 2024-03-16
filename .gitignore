@@ -1,4 +1,1 @@
 venv
-Dockerfile
-.dockerignore
-requirements.txt
