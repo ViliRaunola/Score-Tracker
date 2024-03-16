@@ -26,13 +26,21 @@ const PlayerCard = ({player}: Props) => {
         </Button>
       </div>
 
-      <div className="player-results-grid">
-        {player.words.map((word: string, index: number) => (
-          <>
-            <span>{word}</span>
-            <span>{player.score[index]}</span>
-          </>
-        ))}
+      <div className="player-results-table">
+        <table>
+          <tr>
+            <th>Sana</th>
+            <th>Pisteet</th>
+          </tr>
+          <tbody>
+            {player.words.map((word: string, index: number) => (
+              <tr>
+                <td>{word}</td>
+                <td>{player.score[index]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       <ScrabblePointModal open={open} handleClose={handleClose} player={player} />

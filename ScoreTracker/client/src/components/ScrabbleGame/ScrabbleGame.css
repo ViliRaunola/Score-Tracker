@@ -7,3 +7,13 @@
     width: 100%;
     flex-wrap: wrap;
 }
+
+.scrabble-outer-container {
+    width: 100%;
+}
+
+@media screen and (min-width: 1020px) {
+    .scrabble-outer-container {
+        width: 50vw;
+    }
+}

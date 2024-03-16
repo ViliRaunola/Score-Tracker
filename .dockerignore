@@ -1,7 +1,7 @@
 */.git
 *Dockerfile*
 *docker-compose*
-*/node_modules
+ScoreTracker/client/node_modules
 build
 */__pycache__
 */venv

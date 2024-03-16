@@ -90,6 +90,7 @@ export default function BasicModal({ open, handleClose }: Props) {
                             name="name"
                             label="Pelaajan nimi"
                             type="text"
+                            autoComplete='off'
                             fullWidth
                             variant="standard"
                             helperText="Pelaajan nimi"

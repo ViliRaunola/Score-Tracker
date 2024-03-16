@@ -39,6 +39,7 @@ code {
 
 :root {
     --background: rgb(23, 63, 27);
+    --dark-green: rgb(11, 29, 12);
     --disabled: rgba(134, 138, 129, 0.637);
     --white-text: #ffff;
     --black: rgb(0, 0, 0);

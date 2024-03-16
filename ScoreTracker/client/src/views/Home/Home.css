@@ -1,0 +1,9 @@
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3rem 2rem 2rem 2rem;
+    color: var(--white-text);
+    text-align: center;
+}

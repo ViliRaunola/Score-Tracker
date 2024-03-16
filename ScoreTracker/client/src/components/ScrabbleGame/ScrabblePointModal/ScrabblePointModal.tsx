@@ -36,6 +36,7 @@ const ScrabblePointModal = ({open, handleClose, player}: Props) => {
   const [wordMultiplier, setWordMultiplier] = useState<number>(1)
   const addScoreToPlayer = playersStore((state) => state.addScoreToPlayer)
   const players = playersStore((state) => state.players)
+  const [wordLen, setWordLen] = useState<number>(0)
 
   //For confimation alert
   const [openAlert, setOpenAlert] = React.useState(false)
@@ -59,24 +60,56 @@ const ScrabblePointModal = ({open, handleClose, player}: Props) => {
     setCharPoints(newCharPoints)
   }
 
+  // This should constitute a better performance compared to the previous way
   useEffect(() => {
-    if (word?.trim().length === 0) {
-      setIsAddPointsDisabled(true)
-    } else {
+    console.log(word)
+    if (word !== undefined) {
+      const currentWordLenght = word?.trim().length
       setIsAddPointsDisabled(false)
+      if (currentWordLenght === 0) {
+        setCharPoints([])
+        setSplitWord([])
+      } else if (currentWordLenght > wordLen) {
+        const arrayOfChar = word?.toLowerCase().split('')
+        const char = arrayOfChar[arrayOfChar.length - 1]
+        let point = findPointForChar(char)
+        setCharPoints((oldArray: CharPoints[] | undefined) => [
+          ...(oldArray ?? []),
+          {char: char, multiplier: 1, points: point},
+        ])
+        setSplitWord((oldArray: string[] | undefined) => [...(oldArray ?? []), char])
+      } else if (currentWordLenght < wordLen) {
+        setCharPoints((oldArray: CharPoints[] | undefined) => {
+          return oldArray?.filter((_, i) => i !== oldArray?.length - 1)
+        })
+        setSplitWord((oldArray: string[] | undefined) => {
+          return oldArray?.filter((_, i) => i !== oldArray?.length - 1)
+        })
+      }
+      setWordLen(currentWordLenght)
+    } else {
+      setIsAddPointsDisabled(true)
     }
-    const arrayOfChar = word?.toLowerCase().split('')
-    setSplitWord(arrayOfChar)
-    setCharPoints([])
-    arrayOfChar?.forEach((char) => {
-      let point = findPointForChar(char)
-      setCharPoints((oldArray: CharPoints[] | undefined) => [
-        ...(oldArray ?? []),
-        {char: char, multiplier: 1, points: point},
-      ])
-    })
-    doRefresh((prev) => prev + 1)
   }, [word])
+
+  // useEffect(() => {
+  //   if (word?.trim().length === 0) {
+  //     setIsAddPointsDisabled(true)
+  //   } else {
+  //     setIsAddPointsDisabled(false)
+  //   }
+  //   const arrayOfChar = word?.toLowerCase().split('')
+  //   setSplitWord(arrayOfChar)
+  //   setCharPoints([])
+  //   arrayOfChar?.forEach((char) => {
+  //     let point = findPointForChar(char)
+  //     setCharPoints((oldArray: CharPoints[] | undefined) => [
+  //       ...(oldArray ?? []),
+  //       {char: char, multiplier: 1, points: point},
+  //     ])
+  //   })
+  //   doRefresh((prev) => prev + 1)
+  // }, [word])
 
   useEffect(() => {
     if (points === 0) {
@@ -125,6 +158,7 @@ const ScrabblePointModal = ({open, handleClose, player}: Props) => {
           Syötä pelaajan antama sana ja valitse tarvittavat lisäpisteet.
         </DialogContentText>
         <TextField
+          autoComplete="off"
           sx={{mb: '1rem'}}
           autoFocus
           required
