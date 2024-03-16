@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "npm run build && npm run server",
     "build": "cd ScoreTracker/client && npm run build",
-    "server": "cd ScoreTracker && python3 manage.py runserver"
+    "start": "cd ScoreTracker && python3 manage.py runserver"
   }
 }
