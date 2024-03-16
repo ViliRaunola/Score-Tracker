@@ -52,9 +52,7 @@ export default function PersistentDrawerRight({handleDrawerOpen, open, handleDra
   const navigate = useNavigate()
 
   React.useEffect(() => {
-    console.log('here')
     const handleClickOutside = (event) => {
-      console.log('here2')
       if (ref.current && !ref.current.contains(event.target)) {
         handleDrawerClose()
       }

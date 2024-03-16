@@ -62,7 +62,6 @@ const ScrabblePointModal = ({open, handleClose, player}: Props) => {
 
   // This should constitute a better performance compared to the previous way
   useEffect(() => {
-    console.log(word)
     if (word !== undefined) {
       const currentWordLenght = word?.trim().length
       setIsAddPointsDisabled(false)
@@ -136,7 +135,6 @@ const ScrabblePointModal = ({open, handleClose, player}: Props) => {
         addScoreToPlayer(player, points, word, i)
       }
     }
-    console.log(player)
     setWord('')
     setWordMultiplier(1)
     handleClose()
